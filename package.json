@@ -1,0 +1,32 @@
+{
+  "name": "react-icons-boilerplate",
+  "version": "1.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "optimize": "rimraf ./optimized & svgo -q -p 8 -f ./raw -o ./optimized",
+    "build": "yarn optimize && node scripts/build.js",
+    "release": "yarn changeset publish"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1 || ^17.0.1",
+    "react-dom": "^16.13.1 || ^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-react": "^7.14.5",
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@svgr/cli": "^5.5.0",
+    "@svgr/core": "^5.5.0",
+    "camelcase": "^6.2.0",
+    "rimraf": "^3.0.2",
+    "svgo": "^2.5.0",
+    "terser": "^5.7.2"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist"
+  ]
+}
