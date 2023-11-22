@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.2.4
+
+### Patch Changes
+
+- 0fc2bf2: Fix index content
+
 ## 2.2.3
 
 ### Patch Changes
