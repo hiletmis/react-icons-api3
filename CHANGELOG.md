@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.1.3
+
+### Patch Changes
+
+- 6a62cd7: restored
+
 ## 2.1.2
 
 ### Patch Changes
