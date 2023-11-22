@@ -71,7 +71,7 @@ async function buildIcons(format = 'esm') {
         let fileName = file;
 
         if (!fileName) {
-            console.log(`Chain ${chain.id} not found`)
+            console.log(`File for chain ${chain.id} not found`);
             return
         }
 
@@ -125,7 +125,7 @@ async function buildIcons(format = 'esm') {
     }
 
     await fs.writeFile(
-        `${outDir}/Chains.js`,
+        `${outDir}/ChainIcon.js`,
         code,
         'utf-8'
     )
