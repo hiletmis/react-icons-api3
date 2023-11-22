@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.2.3
+
+### Patch Changes
+
+- 1cbddfc: Fix export function name
+
 ## 2.2.2
 
 ### Patch Changes
