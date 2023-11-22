@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- 285dba2: export function
+
+## 2.1.4
+
+### Patch Changes
+
 - b80f000: add symbol
 
 ## 2.1.3
