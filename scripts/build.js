@@ -3,6 +3,7 @@ const rimraf = require('rimraf');
 const svgr = require('@svgr/core').default;
 const camelcase = require('camelcase');
 const babel = require('@babel/core');
+const { minify } = require('terser');
 
 const outputPath = './dist';
 
@@ -24,13 +25,19 @@ async function transformSVGtoJSX(file, componentName, format) {
         presets: [['@babel/preset-react', { useBuiltIns: true }]],
     });
 
+    if (format === 'esm') {
+        const { code: minifiedCode } = await minify(code);
+        return minifiedCode;
+    }
+
     const replaceESM = code
         .replace(
             'import * as React from "react";',
             'const React = require("react");'
         )
         .replace('export default', 'module.exports =');
-    return replaceESM;
+    const { code: minifiedCode } = await minify(replaceESM);
+    return minifiedCode;
 }
 
 function indexFileContent(files, format, includeExtension = true) {
@@ -67,9 +74,7 @@ async function buildIcons(format = 'esm') {
                 pascalCase: true,
             })}Icon`;
             const content = await transformSVGtoJSX(fileName, componentName, format);
-            const types = `import * as React from 'react';
-            \ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};
-            \n`;
+            const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
             // console.log(`- Creating file: ${componentName}.js`);
             await fs.writeFile(`${outDir}/${componentName}.js`, content, 'utf-8');
