@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.2.1
+
+### Patch Changes
+
+- 7bd464c: include export chains
+
 ## 2.2.0
 
 ### Minor Changes
