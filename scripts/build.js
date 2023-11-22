@@ -54,7 +54,7 @@ function indexFileContent(files, format, includeExtension = true) {
                 : `module.exports.${componentName} = require(${directoryString});\n`;
     });
 
-    content += format === 'esm' ? `export { default as Chains } from './Chains';\n` : `module.exports.Chains = require('./Chains.js');\n`;
+    content += format === 'esm' ? `export { default as ChainIcon } from './ChainIcon';\n` : `module.exports.ChainIcon = require('./ChainIcon.js');\n`;
 
     return content;
 }
