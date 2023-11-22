@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.1.2
+
+### Patch Changes
+
+- 0387c4d: size
+
 ## 2.1.1
 
 ### Patch Changes
