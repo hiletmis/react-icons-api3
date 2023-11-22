@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.2.0
+
+### Minor Changes
+
+- cd32284: export chains
+
 ## 2.1.4
 
 ### Patch Changes
