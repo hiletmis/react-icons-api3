@@ -87,9 +87,9 @@ async function buildIcons(format = 'esm') {
 
     })
 
-    const types = `import * as React from 'react';\ndeclare function Chains(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default Chains;\n`;
+    const types = `import * as React from 'react';\ndeclare function ChainIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ChainIcon;\n`;
     await fs.writeFile(
-        `${outDir}/Chains.d.ts`,
+        `${outDir}/ChainIcon.d.ts`,
         types,
         'utf-8'
     )
@@ -98,7 +98,7 @@ async function buildIcons(format = 'esm') {
         import Chain43113Icon from './Chain43113Icon';
         import Chain11155111Icon from './Chain11155111Icon';
         
-        function Chains(props) {
+        function ChainIcon(props) {
             switch (props.id) {
                 case "43113":
                     return <Chain43113Icon {...props} />;
@@ -109,7 +109,7 @@ async function buildIcons(format = 'esm') {
             }
         }
 
-        export default Chains;
+        export default ChainIcon;
     `
         , {
             presets: [['@babel/preset-react', { useBuiltIns: true }]],
