@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.2.2
+
+### Patch Changes
+
+- 7c60d0d: new icons added
+
 ## 2.2.1
 
 ### Patch Changes
