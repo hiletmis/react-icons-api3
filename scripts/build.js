@@ -66,25 +66,50 @@ async function buildIcons(format = 'esm', dir) {
 
     const files = await fs.readdir(dir, 'utf-8');
 
+    let types = "import * as React from 'react';\n\n";
+
     chains.CHAINS.forEach(async (chain) => {
-        const file = files.find(file => file.includes(`Chain${chain.id}`))
+        const file = files.find(file => file.includes(`Chain${chain.id}.svg`))
         let fileName = file;
 
         if (!fileName) {
+            console.log(`- Chain ${chain.id} not found`);
             return
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
             pascalCase: true,
         })}Icon`;
+
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
-        const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+        types += `export declare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
         await fs.writeFile(`${outDir}/${componentName}.js`, content, 'utf-8');
-        await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
+        await fs.writeFile(`${outDir}/Chains.d.ts`, types, 'utf-8');
 
     })
+
+    await buildChainBatch(outDir, format);
+    await buildIndexFiles(outDir, files, format);
+
+}
+
+async function buildIndexFiles(outDir, files, format = 'esm') {
+    console.log('- Creating file: index.js');
+    await fs.writeFile(
+        `${outDir}/index.js`,
+        indexFileContent(files, format),
+        'utf-8'
+    );
+    await fs.writeFile(
+        `${outDir}/index.d.ts`,
+        indexFileContent(files, 'esm', false),
+        'utf-8'
+    );
+}
+
+async function buildChainBatch(outDir, format = 'esm') {
 
     const types = `import * as React from 'react';\ndeclare function ChainIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ChainIcon;\n`;
     await fs.writeFile(
@@ -92,24 +117,22 @@ async function buildIcons(format = 'esm', dir) {
         types,
         'utf-8'
     )
+
+    const imports = `import * as React from "react";
+        import * as Chains from './Chains';\n\n`
+
+    const switchCase = chains.CHAINS.map(chain => `case "${chain.id}":\n\treturn <Chains.Chain${chain.id}Icon {...props} />;\n`).join('')
+
     let { code } = await babel.transformAsync(`
-        import * as React from "react";
-        import Chain43113Icon from './Chain43113Icon';
-        import Chain11155111Icon from './Chain11155111Icon';
+        ${imports}
         
         function ChainIcon(props) {
-            const t = \`Chain\$\{props.id\}Icon\`;
-
             switch (props.id) {
-                case "43113":
-                    return <Chain43113Icon {...props} />;
-                case "11155111":
-                    return <Chain11155111Icon {...props} />;
+                ${switchCase}
                 default:
-                    return <Chain43113Icon {...props} />;
+                    return <Chains.Chain43113Icon {...props} />;
             }
         }
-
         export default ChainIcon;
     `
         , {
@@ -130,25 +153,11 @@ async function buildIcons(format = 'esm', dir) {
         code,
         'utf-8'
     )
-
-    console.log('- Creating file: index.js');
-    await fs.writeFile(
-        `${outDir}/index.js`,
-        indexFileContent(files, format),
-        'utf-8'
-    );
-    await fs.writeFile(
-        `${outDir}/index.d.ts`,
-        indexFileContent(files, 'esm', false),
-        'utf-8'
-    );
 }
 
 async function buildChainIcons(format = 'esm') {
     await buildIcons(format, './optimized/chains');
 }
-
-
 
 (function main() {
     console.log('🏗 Building icon package...');
