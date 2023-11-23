@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.3.0
+
+### Minor Changes
+
+- bb80497: Change folder structure
+
 ## 2.2.4
 
 ### Patch Changes
