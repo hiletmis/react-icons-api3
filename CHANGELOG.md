@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.4.0
+
+### Minor Changes
+
+- 8cbcb31: All chains added
+
 ## 2.3.0
 
 ### Minor Changes
