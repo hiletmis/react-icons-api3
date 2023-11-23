@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.4.2
+
+### Patch Changes
+
+- bacd0cf: Missing icons fixed
+
 ## 2.4.1
 
 ### Patch Changes
