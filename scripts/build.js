@@ -7,8 +7,8 @@ const babel = require('@babel/core');
 
 const outputPath = './dist';
 
-async function transformSVGtoJSX(file, componentName, format) {
-    const content = await fs.readFile(`./optimized/${file}`, 'utf-8');
+async function transformSVGtoJSX(file, componentName, format, dir) {
+    const content = await fs.readFile(`${dir}/${file}`, 'utf-8');
     const svgReactContent = await svgr(
         content,
         {
@@ -59,26 +59,25 @@ function indexFileContent(files, format, includeExtension = true) {
     return content;
 }
 
-async function buildIcons(format = 'esm') {
+async function buildIcons(format = 'esm', dir) {
     let outDir = `${outputPath}/${format}`;
 
     await fs.mkdir(outDir, { recursive: true });
 
-    const files = await fs.readdir('./optimized', 'utf-8');
+    const files = await fs.readdir(dir, 'utf-8');
 
     chains.CHAINS.forEach(async (chain) => {
         const file = files.find(file => file.includes(`Chain${chain.id}`))
         let fileName = file;
 
         if (!fileName) {
-            console.log(`File for chain ${chain.id} not found`);
             return
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
             pascalCase: true,
         })}Icon`;
-        const content = await transformSVGtoJSX(fileName, componentName, format);
+        const content = await transformSVGtoJSX(fileName, componentName, format, dir);
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
@@ -99,6 +98,8 @@ async function buildIcons(format = 'esm') {
         import Chain11155111Icon from './Chain11155111Icon';
         
         function ChainIcon(props) {
+            const t = \`Chain\$\{props.id\}Icon\`;
+
             switch (props.id) {
                 case "43113":
                     return <Chain43113Icon {...props} />;
@@ -143,6 +144,9 @@ async function buildIcons(format = 'esm') {
     );
 }
 
+async function buildChainIcons(format = 'esm') {
+    await buildIcons(format, './optimized/chains');
+}
 
 
 
@@ -151,6 +155,6 @@ async function buildIcons(format = 'esm') {
     new Promise((resolve) => {
         rimraf(`${outputPath}/*`, resolve);
     })
-        .then(() => Promise.all([buildIcons('cjs'), buildIcons('esm')]))
+        .then(() => Promise.all([buildChainIcons('cjs'), buildChainIcons('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 })();
