@@ -66,8 +66,6 @@ async function buildIcons(format = 'esm', dir) {
 
     const files = await fs.readdir(dir, 'utf-8');
 
-    let types = "import * as React from 'react';\n\n";
-
     chains.CHAINS.forEach(async (chain) => {
         const file = files.find(file => file.includes(`Chain${chain.id}.svg`))
         let fileName = file;
@@ -82,11 +80,11 @@ async function buildIcons(format = 'esm', dir) {
         })}Icon`;
 
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
-        types += `export declare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\n`;
+        const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
         await fs.writeFile(`${outDir}/${componentName}.js`, content, 'utf-8');
-        await fs.writeFile(`${outDir}/Chains.d.ts`, types, 'utf-8');
+        await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
 
     })
 
@@ -118,10 +116,12 @@ async function buildChainBatch(outDir, format = 'esm') {
         'utf-8'
     )
 
-    const imports = `import * as React from "react";
-        import * as Chains from './Chains';\n\n`
+    const iconImports = chains.CHAINS.map(chain => `import Chain${chain.id}Icon from './Chain${chain.id}Icon';\n`).join('')
 
-    const switchCase = chains.CHAINS.map(chain => `case "${chain.id}":\n\treturn <Chains.Chain${chain.id}Icon {...props} />;\n`).join('')
+    const imports = `import * as React from "react";
+        ${iconImports};\n\n`
+
+    const switchCase = chains.CHAINS.map(chain => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`).join('')
 
     let { code } = await babel.transformAsync(`
         ${imports}
@@ -130,7 +130,7 @@ async function buildChainBatch(outDir, format = 'esm') {
             switch (props.id) {
                 ${switchCase}
                 default:
-                    return <Chains.Chain43113Icon {...props} />;
+                    return <Chain43113Icon {...props} />;
             }
         }
         export default ChainIcon;
