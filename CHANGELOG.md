@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.4.1
+
+### Patch Changes
+
+- 0e5180a: Fix import
+
 ## 2.4.0
 
 ### Minor Changes
