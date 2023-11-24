@@ -3,14 +3,14 @@
 ## Installation
 
 ```bash
-yarn add react-icons-api
+yarn add react-icons-api3
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import { ChainIcon, SymbolIcon } from 'react-icons-api';
+import { ChainIcon, SymbolIcon } from 'react-icons-api3';
 
 const App = () => (
   <div>
@@ -38,6 +38,6 @@ export default App;
 
 ## License
 
-MIT © [react-icons-api]
+MIT © 
 
 <!-- prettier-ignore-end -->
