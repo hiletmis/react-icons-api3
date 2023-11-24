@@ -17,38 +17,35 @@ async function transformSVGtoJSX(file, componentName, format, dir) {
             replaceAttrValues: { '#00497A': "{props.color || '#00497A'}" },
             svgProps: {
                 width: 32,
-                height: 32,
-            },
+                height: 32
+            }
         },
         { componentName }
     );
 
     let { code } = await babel.transformAsync(svgReactContent, {
-        presets: [['@babel/preset-react', { useBuiltIns: true }]],
+        presets: [['@babel/preset-react', { useBuiltIns: true }]]
     });
-
 
     if (format === 'esm') {
         return code;
     }
 
     const replaceESM = code
-        .replace(
-            'import * as React from "react";',
-            'const React = require("react");'
-        )
+        .replace('import * as React from "react";', 'const React = require("react");')
         .replace('export default', 'module.exports =');
     return replaceESM;
 }
 
 function indexFileContent(format, batchName) {
-    return format === 'esm' ? `export { default as ${batchName} } from './${batchName}';\n` : `module.exports.${batchName} = require('./${batchName}.js');\n`;
+    return format === 'esm'
+        ? `export { default as ${batchName} } from './${batchName}';\n`
+        : `module.exports.${batchName} = require('./${batchName}.js');\n`;
 }
 
 async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
-
     chains.CHAINS.forEach(async (chain) => {
-        const file = files.find(file => file.includes(`Chain${chain.id}.svg`))
+        const file = files.find((file) => file.includes(`Chain${chain.id}.svg`));
         let fileName = file;
 
         if (!fileName) {
@@ -56,7 +53,7 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
-            pascalCase: true,
+            pascalCase: true
         })}Icon`;
 
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
@@ -65,15 +62,14 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
         // console.log(`- Creating file: ${componentName}.js`);
         await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
         await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
-
-    })
+    });
 }
 
 async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
-    const symbols = [...new Set(feeds.map(feed => feed.name.split('/')).flat())];
+    const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
 
     symbols.forEach(async (symbol) => {
-        const file = files.find(file => file.includes(`${symbol.toLowerCase().replaceAll(' ', '-')}.svg`))
+        const file = files.find((file) => file == (`${symbol.toLowerCase().replaceAll(' ', '-')}.svg`));
         let fileName = file;
 
         if (!fileName) {
@@ -81,7 +77,7 @@ async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
-            pascalCase: true,
+            pascalCase: true
         })}Icon`;
 
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
@@ -89,8 +85,7 @@ async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
 
         await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
         await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
-
-    })
+    });
 }
 
 async function buildIcons(format = 'esm', dir, mode, batchName) {
@@ -115,90 +110,101 @@ async function buildIcons(format = 'esm', dir, mode, batchName) {
 
     await buildBatch(outDir, format, batchName, mode);
     await buildIndexFiles(outDir, [], format, batchName);
-
 }
 
 async function buildIndexFiles(outDir, files, format = 'esm', batchName) {
     console.log('- Creating file: index.js');
-    await fs.appendFile(
-        `${outDir}/index.js`,
-        indexFileContent(format, batchName),
-        'utf-8'
-    );
-    await fs.appendFile(
-        `${outDir}/index.d.ts`,
-        indexFileContent('esm', batchName),
-        'utf-8'
-    );
+    await fs.appendFile(`${outDir}/index.js`, indexFileContent(format, batchName), 'utf-8');
+    await fs.appendFile(`${outDir}/index.d.ts`, indexFileContent('esm', batchName), 'utf-8');
+}
+
+function sanitizeName(name) {
+    const componentName = `${camelcase(name.replace(/.svg/, ''), {
+        pascalCase: true
+    })}Icon`;
+    return componentName;
+}
+
+function generateSymbolSwitchCase() {
+    const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
+    return symbols
+        .map(
+            (symbol) =>
+                `
+        case "${symbol.toLowerCase().replaceAll(' ', '_')}":\n\treturn <Symbol${sanitizeName(
+                    symbol
+                )} {...props} />;\n`
+        )
+        .join('');
+}
+
+function generateSymbolImports() {
+    const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
+    return symbols
+        .map(
+            (symbol) => `import Symbol${sanitizeName(symbol)} from './icons/symbols/${sanitizeName(symbol)}';\n`
+        )
+        .join('');
 }
 
 function buildSwitchCase(mode) {
-    const symbols = ["Btc"]
     switch (mode) {
         case 'chains':
-            return chains.CHAINS.map(chain => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`).join('')
+            return chains.CHAINS.map(
+                (chain) => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`
+            ).join('');
         case 'symbols':
-            return symbols.map(symbol => `case "${symbol}":\n\treturn <Symbol${symbol}Icon {...props} />;\n`).join('')
+            return generateSymbolSwitchCase();
         default:
             break;
     }
 }
 
 function buildIconImports(mode) {
-    const symbols = ["Btc"]
-
     switch (mode) {
         case 'chains':
-            return chains.CHAINS.map(chain => `import Chain${chain.id}Icon from './icons/chains/Chain${chain.id}Icon';\n`).join('')
+            return chains.CHAINS.map(
+                (chain) => `import Chain${chain.id}Icon from './icons/chains/Chain${chain.id}Icon';\n`
+            ).join('');
         case 'symbols':
-            return symbols.map(symbol => `import Symbol${symbol}Icon from './icons/symbols/${symbol}Icon';\n`).join('')
+            return generateSymbolImports();
         default:
             break;
     }
 }
 
 async function buildBatch(outDir, format = 'esm', batchName, mode) {
-
     const types = `import * as React from 'react';\ndeclare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${batchName};\n`;
-    await fs.writeFile(
-        `${outDir}/${batchName}.d.ts`,
-        types,
-        'utf-8'
-    )
+    await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
     const imports = `import * as React from "react";
-        ${buildIconImports(mode)};\n\n`
+        ${buildIconImports(mode)};\n\n`;
 
-    let { code } = await babel.transformAsync(`
+    let { code } = await babel.transformAsync(
+        `
         ${imports}
         
         function ${batchName}(props) {
-            switch (props.id) {
+            switch (props.id.toLowerCase().replaceAll(" ", "_")) {
                 ${buildSwitchCase(mode)}
                 default:
                     return null;
             }
         }
         export default ${batchName};
-    `
-        , {
-            presets: [['@babel/preset-react', { useBuiltIns: true }]],
-        });
+    `,
+        {
+            presets: [['@babel/preset-react', { useBuiltIns: true }]]
+        }
+    );
 
     if (format === 'cjs') {
         code = code
-            .replace(
-                'import * as React from "react";',
-                'const React = require("react");'
-            )
+            .replace('import * as React from "react";', 'const React = require("react");')
             .replace('export default', 'module.exports =');
     }
 
-    await fs.writeFile(
-        `${outDir}/${batchName}.js`,
-        code,
-        'utf-8'
-    )
+    await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
 }
 
 async function generateIcons(format = 'esm') {

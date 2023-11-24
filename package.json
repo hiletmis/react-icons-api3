@@ -1,12 +1,13 @@
 {
   "name": "react-icons-api3",
-  "version": "3.0.0",
+  "version": "2.5.1",
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
     "optimize-chain-icons": "rimraf ./optimized/chains & svgo -q -p 8 -f ./raw/chains -o ./optimized/chains",
     "optimize-symbol-icons": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbols",
     "build": "yarn optimize-chain-icons && yarn optimize-symbol-icons && node scripts/build.js",
+    "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "release": "yarn changeset publish"
   },
   "peerDependencies": {
@@ -31,6 +32,7 @@
     "dist"
   ],
   "dependencies": {
-    "@api3/chains": "^4.1.0"
+    "@api3/chains": "^4.1.0",
+    "prettier": "^3.1.0"
   }
 }

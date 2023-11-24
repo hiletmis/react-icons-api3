@@ -2,7 +2,7 @@ module.exports = {
     multipass: true,
     js2svg: {
         indent: 2,
-        pretty: true,
+        pretty: true
     },
     plugins: [
         { name: 'preset-default' },
@@ -10,6 +10,6 @@ module.exports = {
         'removeScriptElement',
         'removeDimensions',
         'removeScriptElement',
-        'removeDimensions',
-    ],
+        'removeDimensions'
+    ]
 };
