@@ -59,12 +59,7 @@ function indexFileContent(files, format, includeExtension = true) {
     return content;
 }
 
-async function buildIcons(format = 'esm', dir) {
-    let outDir = `${outputPath}/${format}`;
-
-    await fs.mkdir(outDir, { recursive: true });
-
-    const files = await fs.readdir(dir, 'utf-8');
+async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
 
     chains.CHAINS.forEach(async (chain) => {
         const file = files.find(file => file.includes(`Chain${chain.id}.svg`))
@@ -83,13 +78,26 @@ async function buildIcons(format = 'esm', dir) {
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
-        await fs.writeFile(`${outDir}/${componentName}.js`, content, 'utf-8');
-        await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
+        await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
+        await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
 
     })
 
-    await buildChainBatch(outDir, format);
-    await buildIndexFiles(outDir, files, format);
+}
+
+async function buildIcons(format = 'esm', dir, mode, batchName) {
+    let outDir = `${outputPath}/${format}`;
+    let iconsDir = `${outDir}/icons/${mode || ''}`;
+
+    await fs.mkdir(outDir, { recursive: true });
+    await fs.mkdir(iconsDir, { recursive: true });
+
+    const files = await fs.readdir(dir, 'utf-8');
+
+    await buildChainIcons(files, iconsDir, format, dir);
+
+    await buildBatch(outDir, format, batchName);
+    await buildIndexFiles(outDir, [], format);
 
 }
 
@@ -107,16 +115,16 @@ async function buildIndexFiles(outDir, files, format = 'esm') {
     );
 }
 
-async function buildChainBatch(outDir, format = 'esm') {
+async function buildBatch(outDir, format = 'esm', batchName) {
 
     const types = `import * as React from 'react';\ndeclare function ChainIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ChainIcon;\n`;
     await fs.writeFile(
-        `${outDir}/ChainIcon.d.ts`,
+        `${outDir}/${batchName}.d.ts`,
         types,
         'utf-8'
     )
 
-    const iconImports = chains.CHAINS.map(chain => `import Chain${chain.id}Icon from './Chain${chain.id}Icon';\n`).join('')
+    const iconImports = chains.CHAINS.map(chain => `import Chain${chain.id}Icon from './icons/chains/Chain${chain.id}Icon';\n`).join('')
 
     const imports = `import * as React from "react";
         ${iconImports};\n\n`
@@ -126,14 +134,14 @@ async function buildChainBatch(outDir, format = 'esm') {
     let { code } = await babel.transformAsync(`
         ${imports}
         
-        function ChainIcon(props) {
+        function ${batchName}(props) {
             switch (props.id) {
                 ${switchCase}
                 default:
                     return <Chain43113Icon {...props} />;
             }
         }
-        export default ChainIcon;
+        export default ${batchName};
     `
         , {
             presets: [['@babel/preset-react', { useBuiltIns: true }]],
@@ -149,14 +157,14 @@ async function buildChainBatch(outDir, format = 'esm') {
     }
 
     await fs.writeFile(
-        `${outDir}/ChainIcon.js`,
+        `${outDir}/${batchName}.js`,
         code,
         'utf-8'
     )
 }
 
-async function buildChainIcons(format = 'esm') {
-    await buildIcons(format, './optimized/chains');
+async function generateIcons(format = 'esm') {
+    await buildIcons(format, './optimized/chains', 'chains', 'ChainIcon');
 }
 
 (function main() {
@@ -164,6 +172,6 @@ async function buildChainIcons(format = 'esm') {
     new Promise((resolve) => {
         rimraf(`${outputPath}/*`, resolve);
     })
-        .then(() => Promise.all([buildChainIcons('cjs'), buildChainIcons('esm')]))
+        .then(() => Promise.all([generateIcons('cjs'), generateIcons('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 })();
