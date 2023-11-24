@@ -135,7 +135,7 @@ async function buildIndexFiles(outDir, files, format = 'esm', batchName) {
 }
 
 function buildSwitchCase(mode) {
-    const symbols = ["BTC"]
+    const symbols = ["Btc"]
     switch (mode) {
         case 'chains':
             return chains.CHAINS.map(chain => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`).join('')
@@ -147,7 +147,7 @@ function buildSwitchCase(mode) {
 }
 
 function buildIconImports(mode) {
-    const symbols = ["BTC"]
+    const symbols = ["Btc"]
 
     switch (mode) {
         case 'chains':
