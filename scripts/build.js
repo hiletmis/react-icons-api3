@@ -76,9 +76,7 @@ async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
             throw new Error(`- Symbol ${symbol} not found`);
         }
 
-        const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
-            pascalCase: true
-        })}Icon`;
+        const componentName = sanitizeName(fileName);
 
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
@@ -119,10 +117,8 @@ async function buildIndexFiles(outDir, files, format = 'esm', batchName) {
 }
 
 function sanitizeName(name) {
-    const componentName = `${camelcase(name.replace(/.svg/, ''), {
-        pascalCase: true
-    })}Icon`;
-    return componentName;
+    const componentName = `${camelcase(name.replace(/.svg/, ''))}`;
+    return componentName.toLowerCase() + 'Icon';
 }
 
 function generateSymbolSwitchCase() {
