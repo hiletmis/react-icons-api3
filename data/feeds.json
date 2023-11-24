@@ -376,14 +376,6 @@
         ]
     },
     {
-        "name": "EURE/USD",
-        "deviationThresholdsInPercentages": [
-            0.25,
-            0.5,
-            1
-        ]
-    },
-    {
         "name": "FIL/USD",
         "deviationThresholdsInPercentages": [
             0.25,
@@ -425,14 +417,6 @@
     },
     {
         "name": "GBP/USD",
-        "deviationThresholdsInPercentages": [
-            0.25,
-            0.5,
-            1
-        ]
-    },
-    {
-        "name": "GHO/USD",
         "deviationThresholdsInPercentages": [
             0.25,
             0.5,
@@ -672,14 +656,6 @@
         ]
     },
     {
-        "name": "mETH/ETH Exchange Rate",
-        "deviationThresholdsInPercentages": [
-            0.25,
-            0.5,
-            1
-        ]
-    },
-    {
         "name": "METIS/USD",
         "deviationThresholdsInPercentages": [
             0.25,
@@ -833,14 +809,6 @@
     },
     {
         "name": "RBN/USD",
-        "deviationThresholdsInPercentages": [
-            0.25,
-            0.5,
-            1
-        ]
-    },
-    {
-        "name": "RDNT/USD",
         "deviationThresholdsInPercentages": [
             0.25,
             0.5,

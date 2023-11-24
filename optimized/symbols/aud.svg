@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 42 42">
+  <mask id="a" width="42" height="42" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+    <circle cx="21" cy="21" r="21" fill="#D9D9D9"/>
+  </mask>
+  <g mask="url(#a)">
+    <path fill="#00008B" d="M67 0h-84v42h84V0Z"/>
+    <g clip-path="url(#b)">
+      <path fill="#000" d="m-16.9995 0 42 21-42-21Zm42 0-42 21 42-21Z"/>
+      <path stroke="#fff" stroke-width="4.2" d="m-16.9995 0 42 21m0-21-42 21"/>
+      <path fill="#000" d="m-16.9995 0 42 21-42-21Zm42 0-42 21 42-21Z"/>
+      <path stroke="red" stroke-width="2.8" d="m-16.9995 0 42 21m0-21-42 21"/>
+      <path fill="#000" d="M4.00049 0v21V0ZM-16.9995 10.5h42-42Z"/>
+      <path stroke="#fff" stroke-width="7" d="M4.00049 0v21M-16.9995 10.5h42"/>
+      <path fill="#000" d="M4.00049 0v21V0ZM-16.9995 10.5h42-42Z"/>
+      <path stroke="red" stroke-width="4.2" d="M4.00049 0v21M-16.9995 10.5h42"/>
+    </g>
+    <path fill="#fff" d="m3.99947 25.1992 1.21487 3.7773 3.71067-1.4053-2.19574 3.305 3.41223 2.0249-3.9529.3439.54434 3.9303-2.73347-2.8761L1.266 37.1753l.54434-3.9303-3.95292-.3439 3.41225-2.0249-2.19574-3.305 3.71066 1.4053 1.21488-3.7773ZM35.4971 15.376l.5785 1.7987 1.7669-.6692-1.0455 1.5738 1.6248.9642-1.8823.1638.2592 1.8716-1.3016-1.3696-1.3017 1.3696.2592-1.8716-1.8823-.1638 1.6248-.9642-1.0455-1.5738 1.7669.6692.5786-1.7987Z"/>
+  </g>
+  <defs>
+    <clipPath id="b">
+      <path fill="#fff" d="M0 0h35.3719v21H0z" transform="translate(-10.5039)"/>
+    </clipPath>
+  </defs>
+</svg>

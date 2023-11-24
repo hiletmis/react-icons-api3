@@ -1,4 +1,5 @@
 const chains = require('@api3/chains');
+const feeds = require('../data/feeds.json');
 const fs = require('fs/promises');
 const rimraf = require('rimraf');
 const svgr = require('@svgr/core').default;
@@ -41,8 +42,7 @@ async function transformSVGtoJSX(file, componentName, format, dir) {
 }
 
 function indexFileContent(format, batchName) {
-    let result = format === 'esm' ? `export { default as ChainIcon } from './ChainIcon';\n` : `module.exports.ChainIcon = require('./ChainIcon.js');\n`;
-    return result += format === 'esm' ? `export { default as SymbolIcon } from './SymbolIcon';\n` : `module.exports.SymbolIcon = require('./SymbolIcon.js');\n`;
+    return format === 'esm' ? `export { default as ${batchName} } from './${batchName}';\n` : `module.exports.${batchName} = require('./${batchName}.js');\n`;
 }
 
 async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
@@ -52,8 +52,7 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
         let fileName = file;
 
         if (!fileName) {
-            console.log(`- Chain ${chain.id} not found`);
-            return
+            throw new Error(`- Chain ${chain.id} not found`);
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
@@ -71,14 +70,14 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
 }
 
 async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
-    const symbols = ["BTC"]
+    const symbols = [...new Set(feeds.map(feed => feed.name.split('/')).flat())];
+
     symbols.forEach(async (symbol) => {
-        const file = files.find(file => file.includes(`${symbol}.svg`))
+        const file = files.find(file => file.includes(`${symbol.toLowerCase().replaceAll(' ', '-')}.svg`))
         let fileName = file;
 
         if (!fileName) {
-            console.log(`- Symbol ${symbol} not found`);
-            return
+            throw new Error(`- Symbol ${symbol} not found`);
         }
 
         const componentName = `${camelcase(fileName.replace(/.svg/, ''), {
@@ -88,7 +87,6 @@ async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
         const content = await transformSVGtoJSX(fileName, componentName, format, dir);
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
-        // console.log(`- Creating file: ${componentName}.js`);
         await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
         await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
 
@@ -122,12 +120,12 @@ async function buildIcons(format = 'esm', dir, mode, batchName) {
 
 async function buildIndexFiles(outDir, files, format = 'esm', batchName) {
     console.log('- Creating file: index.js');
-    await fs.writeFile(
+    await fs.appendFile(
         `${outDir}/index.js`,
         indexFileContent(format, batchName),
         'utf-8'
     );
-    await fs.writeFile(
+    await fs.appendFile(
         `${outDir}/index.d.ts`,
         indexFileContent('esm', batchName),
         'utf-8'

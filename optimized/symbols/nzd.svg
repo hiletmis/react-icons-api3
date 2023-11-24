@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 42 42">
+  <mask id="a" width="42" height="42" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+    <circle cx="21" cy="21" r="21" fill="#D9D9D9"/>
+  </mask>
+  <g mask="url(#a)">
+    <path fill="#012169" d="M67 0h-84v42h84V0Z"/>
+    <path fill="#fff" stroke="#F3F3F3" stroke-width=".21" d="m36.4032 15.7483-.0999-.3073-.0998.3073-.5135 1.5803h-1.9848l.2614.19 1.3443.9767-.5135 1.5803-.0998.3074.2614-.19 1.3443-.9767 1.3443.9767.2615.19-.0999-.3074-.5135-1.5803 1.3443-.9767.2615-.19h-1.9848l-.5135-1.5803Z"/>
+    <path fill="#C8102E" d="m36.3101 15.8936 1.3372 4.1155-3.5008-2.5436h4.3273l-3.5009 2.5436.6686-2.0578.6686-2.0577Z"/>
+    <g clip-path="url(#b)">
+      <path fill="#000" d="m-16.9995 0 42 21-42-21Zm0 21 42-21-42 21Z"/>
+      <path stroke="#fff" stroke-width="4.2" d="m-16.9995 0 42 21m-42 0 42-21"/>
+      <path fill="#000" d="m-16.9995 0 42 21-42-21Zm0 21 42-21-42 21Z"/>
+      <path stroke="#C8102E" stroke-width="2.8" d="m-16.9995 0 42 21m-42 0 42-21"/>
+      <path fill="#000" d="M4.00098 0v21V0ZM-16.999 10.5h42-42Z"/>
+      <path stroke="#fff" stroke-width="7" d="M4.00098 0v21M-16.999 10.5h42"/>
+      <path fill="#000" d="M4.00098 0v21V0ZM-16.999 10.5h42-42Z"/>
+      <path stroke="#C8102E" stroke-width="4.2" d="M4.00098 0v21M-16.999 10.5h42"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="b">
+      <path fill="#fff" d="M0 0h42v21H0z" transform="translate(-17)"/>
+    </clipPath>
+  </defs>
+</svg>
