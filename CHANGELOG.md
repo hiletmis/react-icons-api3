@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.4.3
+
+### Patch Changes
+
+- 34e70f7: Move folders
+
 ## 2.4.2
 
 ### Patch Changes
