@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.5.1
+
+### Patch Changes
+
+- 927d866: filename fix
+
 ## 2.5.0
 
 ### Minor Changes
