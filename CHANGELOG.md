@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 2.5.0
+
+### Minor Changes
+
+- ed0d5de: Add symbol support
+
 ## 2.4.3
 
 ### Patch Changes
