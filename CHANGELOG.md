@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 3.0.0
+
+### Major Changes
+
+- 73ca43f: Add symbols
+
 ## 2.5.1
 
 ### Patch Changes
