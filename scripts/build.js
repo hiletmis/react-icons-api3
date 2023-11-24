@@ -69,7 +69,7 @@ async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
     const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
 
     symbols.forEach(async (symbol) => {
-        const file = files.find((file) => file == (`${symbol.toLowerCase().replaceAll(' ', '-')}.svg`));
+        const file = files.find((file) => file == `${symbol.toLowerCase().replaceAll(' ', '-')}.svg`);
         let fileName = file;
 
         if (!fileName) {
@@ -127,9 +127,7 @@ function generateSymbolSwitchCase() {
         .map(
             (symbol) =>
                 `
-        case "${symbol.toLowerCase().replaceAll(' ', '_')}":\n\treturn <Symbol${sanitizeName(
-                    symbol
-                )} {...props} />;\n`
+        case "${symbol.toLowerCase().replaceAll(' ', '_')}":\n\treturn <Symbol${sanitizeName(symbol)} {...props} />;\n`
         )
         .join('');
 }
@@ -137,9 +135,7 @@ function generateSymbolSwitchCase() {
 function generateSymbolImports() {
     const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
     return symbols
-        .map(
-            (symbol) => `import Symbol${sanitizeName(symbol)} from './icons/symbols/${sanitizeName(symbol)}';\n`
-        )
+        .map((symbol) => `import Symbol${sanitizeName(symbol)} from './icons/symbols/${sanitizeName(symbol)}';\n`)
         .join('');
 }
 
