@@ -4,7 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:00"
+      time: "10:54"
     target-branch: "main"
     groups:
       development-dependencies:
