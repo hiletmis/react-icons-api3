@@ -4,8 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:00"
+      time: "11:30"
     target-branch: "main"
+  - ignore:
+      - dependency-name: "^((?!@api3\/|@nodary).)*$"
     groups:
       api3:
         patterns:
@@ -14,7 +16,3 @@ updates:
       others:
         patterns:
           - "*"
-    ignore:
-      - dependency-name: "@types/*"
-      - dependency-name: "babel/*"
-      - dependency-name: "changeset/*"
