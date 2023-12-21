@@ -4,11 +4,17 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "10:54"
+      time: "11:00"
     target-branch: "main"
     groups:
-      development-dependencies:
+      api3:
         patterns:
           - "@api3/*"
           - "@nodary/*"
+      others:
+        patterns:
           - "*"
+    ignore:
+      - dependency-name: "@types/*"
+      - dependency-name: "babel/*"
+      - dependency-name: "changeset/*"
