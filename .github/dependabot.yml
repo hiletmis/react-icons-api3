@@ -7,7 +7,7 @@ updates:
       time: "11:40"
     target-branch: "main"
     ignore:
-      - dependency-name: "^((?!@api3\/|@nodary).)*$"
+      - dependency-name: ^((?!@api3\/|@nodary).)*$
     groups:
       api3:
         patterns:
@@ -23,7 +23,7 @@ updates:
       time: "11:40"
     target-branch: "main"
     ignore:
-      - dependency-name: "^((?!@api3\/|@nodary).)*$"
+      - dependency-name: ^((?!@api3\/|@nodary).)*$
     groups:
       api3:
         patterns:
