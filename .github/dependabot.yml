@@ -4,7 +4,23 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:32"
+      time: "11:40"
+    target-branch: "main"
+    ignore:
+      - dependency-name: "^((?!@api3\/|@nodary).)*$"
+    groups:
+      api3:
+        patterns:
+          - "@api3/*"
+          - "@nodary/*"
+      others:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/viewer"
+    schedule:
+      interval: "daily"
+      time: "11:40"
     target-branch: "main"
     ignore:
       - dependency-name: "^((?!@api3\/|@nodary).)*$"
