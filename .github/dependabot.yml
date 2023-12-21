@@ -6,7 +6,7 @@ updates:
       interval: "daily"
       time: "11:30"
     target-branch: "main"
-  - ignore:
+    - ignore:
       - dependency-name: "^((?!@api3\/|@nodary).)*$"
     groups:
       api3:
