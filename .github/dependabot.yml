@@ -4,7 +4,24 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:57"
+      time: "12:10"
+    target-branch: "main"
+    allow:
+      - dependency-name: "@api3/*"
+      - dependency-name: "@nodary/*"
+    groups:
+      api3:
+        patterns:
+          - "@api3/*"
+          - "@nodary/*"
+      others:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/viewer"
+    schedule:
+      interval: "daily"
+      time: "12:10"
     target-branch: "main"
     allow:
       - dependency-name: "@api3/*"
