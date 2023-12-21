@@ -4,15 +4,13 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:48"
+      time: "11:55"
     target-branch: "main"
     allow:
-      - dependency-name: "@api3/*"
+      - dependency-name: "@api3/chains"
         dependency-type: "all"
         update-type: "all"
-      - dependency-name: "@nodary/*"
-        dependency-type: "all"
-        update-type: "all"
+
     groups:
       api3:
         patterns:
