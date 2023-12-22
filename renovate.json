@@ -5,12 +5,6 @@
     ],
     "packageRules": [
         {
-            "matchPackageNames": [
-                "camelcase"
-            ],
-            "enabled": false
-        },
-        {
             "matchDepTypes": [
                 "devDependencies"
             ],
@@ -22,13 +16,23 @@
                 "patch",
                 "minor"
             ],
-            "automerge": true,
-            "automergeType": "pr-comment",
-            "automergeComment": "bors: r+",
             "schedule": [
                 "before 2pm on Friday"
             ],
             "groupName": "api3",
+            "enabled": true
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "schedule": [
+                "before 2pm on Friday"
+            ],
+            "groupName": "major updates",
             "enabled": true
         }
     ],
@@ -36,5 +40,8 @@
     "lockFileMaintenance": {
         "enabled": false
     },
+    "reviewers": [
+        "hiletmis"
+    ],
     "dependencyDashboard": false
 }
