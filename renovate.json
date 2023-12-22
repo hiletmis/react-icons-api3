@@ -18,6 +18,9 @@
                 "minor"
             ],
             "groupName": "api3",
+            "schedule": [
+                "before 5pm on Friday"
+            ],
             "enabled": true
         }
     ],
