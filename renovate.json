@@ -22,7 +22,9 @@
                 "patch",
                 "minor"
             ],
-            "autoMerge": true,
+            "automerge": true,
+            "automergeType": "pr-comment",
+            "automergeComment": "bors: r+",
             "schedule": [
                 "before 2pm on Friday"
             ],
