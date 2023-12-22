@@ -8,20 +8,12 @@
             "matchDepTypes": [
                 "devDependencies"
             ],
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "groupName": "major updates"
-        },
-        {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
             "matchPackagePatterns": [
                 "@api3\/.*",
                 "@nodary\/.*"
             ],
             "matchUpdateTypes": [
+                "major",
                 "patch",
                 "minor"
             ],
