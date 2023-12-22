@@ -1,19 +1,46 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "assignees": [
-        "hiletmis"
-    ],
     "extends": [
         "config:base"
     ],
     "packageRules": [
         {
-            "matchPackageNames": [
-                "@api3/chains",
-                "@api3/api-integrations",
-                "@nodary/utilities"
+            "matchDepTypes": [
+                "dependencies"
             ],
-            "enabled": false
+            "matchUpdateTypes": [
+                "major",
+                "patch",
+                "minor"
+            ],
+            "schedule": [
+                "after 10pm on Friday"
+            ],
+            "groupName": "non-major-dependencies"
+        },
+        {
+            "matchDepTypes": [
+                "dependencies"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "schedule": [
+                "after 10pm on Friday"
+            ],
+            "groupName": "major-dependencies"
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "schedule": [
+                "after 10pm on Friday"
+            ],
+            "groupName": "major-dev-dependencies"
         },
         {
             "matchDepTypes": [
