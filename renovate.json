@@ -28,7 +28,8 @@
                 "devDependencies"
             ],
             "matchPackagePatterns": [
-                "@api3/.*"
+                "@api3\/.*",
+                "@nodary\/.*"
             ],
             "matchUpdateTypes": [
                 "patch",
