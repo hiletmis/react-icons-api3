@@ -22,21 +22,6 @@
                 "before 2pm on Friday"
             ],
             "groupName": "non-major-dependencies"
-        },
-        {
-            "matchPackageNames": [
-                "@api3/chains",
-                "@api3/api-integrations"
-            ],
-            "matchUpdateTypes": [
-                "major",
-                "patch",
-                "minor"
-            ],
-            "schedule": [
-                "before 2pm on Friday"
-            ],
-            "groupName": "api3"
         }
     ],
     "rangeStrategy": "bump",
