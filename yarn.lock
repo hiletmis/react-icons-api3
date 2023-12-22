@@ -41,7 +41,7 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@api3/chains@^3.5.1":
+"@api3/chains@^3.0.0":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-3.5.1.tgz#daf14bffb4fcae1916c197ca66b7942dcf86d13b"
   integrity sha512-AI1/FbLsqJlSiGIEKMMRLCKaV6r6B7uXHBfzVJPY95rIdiHbmwUEGmlD4ikFTsV3nKDO0YDGm7NDnlmPW0aVJQ==
@@ -1221,10 +1221,10 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
-camelcase@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
-  integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
+camelcase@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-8.0.0.tgz#c0d36d418753fb6ad9c5e0437579745c1c14a534"
+  integrity sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==
 
 caniuse-lite@^1.0.30001565:
   version "1.0.30001571"

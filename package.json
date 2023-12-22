@@ -14,7 +14,7 @@
         "release": "yarn changeset publish"
     },
     "dependencies": {
-        "camelcase": "^6.3.0"
+        "camelcase": "^8.0.0"
     },
     "devDependencies": {
         "@api3/api-integrations": "^0.0.1",
