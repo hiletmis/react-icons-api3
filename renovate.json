@@ -5,6 +5,12 @@
     ],
     "packageRules": [
         {
+            "matchPackageNames": [
+                "camelcase"
+            ],
+            "enabled": false
+        },
+        {
             "matchDepTypes": [
                 "devDependencies"
             ],
@@ -13,14 +19,23 @@
                 "@nodary\/.*"
             ],
             "matchUpdateTypes": [
-                "major",
+                "major"
+            ],
+            "groupName": "api3 major updates"
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchPackagePatterns": [
+                "@api3\/.*",
+                "@nodary\/.*"
+            ],
+            "matchUpdateTypes": [
                 "patch",
                 "minor"
             ],
             "groupName": "api3",
-            "schedule": [
-                "before 5pm on Friday"
-            ],
             "enabled": true
         }
     ],
