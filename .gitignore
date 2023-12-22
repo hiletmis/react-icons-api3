@@ -1,4 +1,8 @@
 node_modules/
 dist/
 .DS_Store
-```
+optimized/
+
+package-lock.json
+logos.tgz
+yarn.lock

@@ -1,35 +1,32 @@
 {
-    "name": "react-icons-api3",
-    "version": "3.0.0",
+    "name": "beta-logos",
+    "version": "0.0.16",
     "license": "MIT",
     "sideEffects": false,
     "scripts": {
-        "optimize-chain-icons": "rimraf ./optimized/chains & svgo -q -p 8 -f ./raw/chains -o ./optimized/chains",
-        "optimize-symbol-icons": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbols",
-        "build": "yarn optimize-chain-icons && yarn optimize-symbol-icons && node scripts/build.js",
+        "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
+        "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
+        "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
+        "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build.js",
+        "build-svg": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build-svg.js",
+        "package": "yarn build-svg && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
     },
-    "peerDependencies": {
-        "react": "^16.13.1 || ^17.0.1",
-        "react-dom": "^16.13.1 || ^17.0.1"
+    "dependencies": {
+        "camelcase": "^6.3.0"
     },
     "devDependencies": {
         "@api3/api-integrations": "^0.0.1",
         "@api3/chains": "^4.1.0",
         "@babel/core": "^7.15.5",
         "@babel/preset-react": "^7.14.5",
-        "@changesets/changelog-github": "^0.4.8",
-        "@changesets/cli": "^2.26.2",
+        "@changesets/changelog-github": "^0.5.0",
+        "@changesets/cli": "^2.27.1",
         "@nodary/utilities": "^0.11.0",
-        "@svgr/cli": "^5.5.0",
-        "@svgr/core": "^8.1.0",
-        "@types/react": "^18.2.39",
-        "camelcase": "^5.3.1",
-        "prettier": "^3.1.0",
-        "rimraf": "^3.0.2",
-        "svgo": "^2.5.0",
-        "terser": "^5.7.2"
+        "prettier": "^3.1.1",
+        "rimraf": "^5.0.5",
+        "svgo": "^2.5.0"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
