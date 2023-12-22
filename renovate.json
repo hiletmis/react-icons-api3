@@ -24,9 +24,11 @@
             "groupName": "non-major-dependencies"
         },
         {
-            "matchPackageNames": [
-                "@api3/chains",
-                "@api3/api-integrations"
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchPackagePatterns": [
+                "@api3/.*"
             ],
             "matchUpdateTypes": [
                 "patch",
