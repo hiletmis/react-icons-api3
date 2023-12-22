@@ -8,6 +8,18 @@
             "matchDepTypes": [
                 "devDependencies"
             ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "schedule": [
+                "before 3pm on Friday"
+            ],
+            "groupName": "major updates"
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
             "matchPackagePatterns": [
                 "@api3\/.*",
                 "@nodary\/.*"
@@ -17,22 +29,9 @@
                 "minor"
             ],
             "schedule": [
-                "before 2pm on Friday"
+                "before 3pm on Friday"
             ],
             "groupName": "api3",
-            "enabled": true
-        },
-        {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "schedule": [
-                "before 2pm on Friday"
-            ],
-            "groupName": "major updates",
             "enabled": true
         }
     ],
