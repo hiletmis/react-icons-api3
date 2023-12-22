@@ -1,0 +1,40 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "assignees": [
+        "hiletmis"
+    ],
+    "extends": [
+        "config:base"
+    ],
+    "packageRules": [
+        {
+            "matchPackageNames": [
+                "@api3/chains",
+                "@api3/api-integrations",
+                "@nodary/utilities"
+            ],
+            "enabled": false
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "patch",
+                "minor"
+            ],
+            "schedule": [
+                "after 10pm on Friday"
+            ],
+            "groupName": "non-major-dependencies"
+        }
+    ],
+    "rangeStrategy": "bump",
+    "lockFileMaintenance": {
+        "enabled": false
+    },
+    "reviewers": [
+        "hiletmis"
+    ],
+    "dependencyDashboard": false
+}
