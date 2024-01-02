@@ -14,4 +14,4 @@ jobs:
 
     - name: Call logos workflow
       run: |
-        curl -d "{\"event_type\": \"registry_package\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/api3dao/logos/dispatches"
+        curl -d "{\"event_type\": \"registry_package\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.PAT }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/api3dao/logos/dispatches"
