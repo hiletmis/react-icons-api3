@@ -5,7 +5,7 @@ on:
     types: [published]
   push:
     branches: [ main ]
-permissions: {}
+permissions: write-all
 jobs:
   Trigger:
     runs-on: ubuntu-latest
@@ -16,5 +16,5 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        repository: api3dao/logos
+        repository: hiletmis/react-icons-api3
         event-type: registry_package
