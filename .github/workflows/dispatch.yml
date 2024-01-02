@@ -5,7 +5,7 @@ on:
     types: [published]
   push:
     branches: [ main ]
-permissions: write-all
+permissions: {}
 jobs:
   Trigger:
     runs-on: ubuntu-latest
