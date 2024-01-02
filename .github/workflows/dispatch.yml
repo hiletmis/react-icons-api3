@@ -13,5 +13,12 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Call logos workflow
-      run: |
-        curl -d "{\"event_type\": \"registry_package\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.PAT }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/api3dao/logos/dispatches"
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.actions.createWorkflowDispatch({
+            owner: api3Dao,
+            repo: logos,
+            workflow_id: 'release.yml',
+            ref: 'main',
+          })
