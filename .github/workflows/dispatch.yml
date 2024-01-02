@@ -17,7 +17,7 @@ jobs:
       with:
         script: |
           github.rest.actions.createWorkflowDispatch({
-            owner: api3Dao,
+            owner: api3dao,
             repo: logos,
             workflow_id: 'release.yml',
             ref: 'main',
