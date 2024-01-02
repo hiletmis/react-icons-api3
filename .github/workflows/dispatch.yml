@@ -1,14 +1,17 @@
-name: dispatch receiver
+name: Trigger on Registry Package Publish
 
 on:
-    repository_dispatch:
-
+  registry_package:
+    types: [published]
+  push:
+    branches: [ main ]
+permissions: write-all
 jobs:
-  build:
+  Trigger:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: dispatch trigger
-      if : github.event.action == 'release'
+
+    - name: Call logos workflow
       run: |
-        echo "repository_dispatch triggered"
+        curl -d "{\"event_type\": \"registry_package\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/api3dao/logos/dispatches"
