@@ -8,14 +8,13 @@ on:
 permissions:
   contents: write
 jobs:
-  Trigger:
+  renovate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository: hiletmis/react-icons-api3
-        event-type: registry_package
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v39.2.4
+        with:
+          configurationFile: example/renovate-config.js
+          token: ${{ secrets.GITHUB_TOKEN }}
