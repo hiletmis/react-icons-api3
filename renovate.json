@@ -35,8 +35,32 @@
                 "patch",
                 "minor"
             ],
-            "groupName": "api3",
-            "enabled": true
+            "groupName": "api3"
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "patch",
+                "minor"
+            ],
+            "groupName": "other minor updates",
+            "schedule": [
+                "before 7am on the first day of the week"
+            ]
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "groupName": "other major updates",
+            "schedule": [
+                "before 7am on the first day of the month"
+            ]
         }
     ],
     "rangeStrategy": "bump",
