@@ -30,7 +30,7 @@ jobs:
         id: info
         uses: jaywcjlove/github-action-package@main
         with:
-          path: ./package.json
+          path: ../package.json
       - run: echo "name - ${{ steps.info.outputs.name }}"
       - run: echo "version - ${{ steps.info.outputs.version }}"
       - run: echo "description - ${{ steps.info.outputs.description }}"
