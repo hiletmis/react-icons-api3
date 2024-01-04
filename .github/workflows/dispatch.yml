@@ -4,17 +4,21 @@ on:
   registry_package:
     types: [published]
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
 permissions: write-all
 jobs:
-  renovate:
+  build:
+    name: Create Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Open PR
-        id: open_pr
-        uses: wandpsilva/open-simple-pr@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Branch
+        id: create_branch
+        uses: lablnet/create-branch-from-tag@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          branch-origin: 'develop'
-          target-branch: 'main'
-          title: 'my pull request'
-          body: 'body of my pull request' 
+          tag_name: develop
+          owner: ${{ github.repository_owner }} # https://docs.github.com/en/actions/learn-github-actions/contexts#example-contents-of-the-github-context
+          repo: ${{ github.event.repository.name }} # https://www.reddit.com/r/github/comments/tjkj6f/get_repo_name_on_github_actions_without_owner/
