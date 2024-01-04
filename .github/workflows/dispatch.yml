@@ -20,6 +20,7 @@ jobs:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_ONBOARDING: "false"
           RENOVATE_PLATFORM_COMMIT: "true"
+          RENOVATE_CONFIG_FILE: renovate-config.json
           RENOVATE_FORCE: ${{ github.event.inputs.overrideSchedule == 'true' && '{''schedule'':null}' || '' }}
         with:
           configurationFile: renovate-config.json
