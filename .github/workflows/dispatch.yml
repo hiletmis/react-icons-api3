@@ -5,11 +5,12 @@ on:
     types: [published]
   push:
     branches: [ main ]
-  workflow_dispatch:
+  repository_dispatch:
+    types: [ release  ]
 permissions: write-all
 jobs:
   build:
-    name: Create Branch
+    name: Run renovate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,7 +21,6 @@ jobs:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           RENOVATE_ONBOARDING: "false"
           RENOVATE_PLATFORM_COMMIT: "true"
-          RENOVATE_FORCE: ${{ github.event.inputs.overrideSchedule == 'true' && '{''schedule'':null}' || '' }}
         with:
           configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
