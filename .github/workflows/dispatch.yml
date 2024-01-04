@@ -1,10 +1,6 @@
 name: Trigger on Registry Package Publish
 
 on:
-  registry_package:
-    types: [published]
-  push:
-    branches: [ main ]
   repository_dispatch:
     types: [ release  ]
 permissions: write-all
