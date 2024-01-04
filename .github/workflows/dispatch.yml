@@ -22,3 +22,14 @@ jobs:
           tag_name: develop
           owner: ${{ github.repository_owner }} # https://docs.github.com/en/actions/learn-github-actions/contexts#example-contents-of-the-github-context
           repo: ${{ github.event.repository.name }} # https://www.reddit.com/r/github/comments/tjkj6f/get_repo_name_on_github_actions_without_owner/
+  modify:
+    name: Create Branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: package.json info
+        id: info
+        uses: jaywcjlove/github-action-package@main
+      - run: echo "name - ${{ steps.info.outputs.name }}"
+      - run: echo "version - ${{ steps.info.outputs.version }}"
+      - run: echo "description - ${{ steps.info.outputs.description }}"
+      - run: echo "author - ${{ steps.info.outputs.author }}"
