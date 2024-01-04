@@ -5,8 +5,6 @@ on:
     types: [published]
   push:
     branches: [ main ]
-  schedule:
-    - cron: '0/5 * * * *'
   workflow_dispatch:
 permissions: write-all
 jobs:
@@ -19,12 +17,9 @@ jobs:
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v39.2.4
         env:
-          # Repository taken from variable to keep configuration file generic
           RENOVATE_REPOSITORIES: ${{ github.repository }}
-          # Onboarding not needed for self hosted
           RENOVATE_ONBOARDING: "false"
           RENOVATE_PLATFORM_COMMIT: "true"
-          # Override schedule if set
           RENOVATE_FORCE: ${{ github.event.inputs.overrideSchedule == 'true' && '{''schedule'':null}' || '' }}
         with:
           configurationFile: renovate-config.json
