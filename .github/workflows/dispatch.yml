@@ -11,27 +11,10 @@ jobs:
     name: Create Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Create Branch
-        id: create_branch
-        uses: lablnet/create-branch-from-tag@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v39.2.4
         with:
-          tag_name: develop
-          owner: ${{ github.repository_owner }} # https://docs.github.com/en/actions/learn-github-actions/contexts#example-contents-of-the-github-context
-          repo: ${{ github.event.repository.name }} # https://www.reddit.com/r/github/comments/tjkj6f/get_repo_name_on_github_actions_without_owner/
-  modify:
-    name: Read package.json
-    runs-on: ubuntu-latest
-    steps:
-      - name: package.json info
-        id: info
-        uses: jaywcjlove/github-action-package@main
-        with:
-          path: ../package.json
-      - run: echo "name - ${{ steps.info.outputs.name }}"
-      - run: echo "version - ${{ steps.info.outputs.version }}"
-      - run: echo "description - ${{ steps.info.outputs.description }}"
-      - run: echo "author - ${{ steps.info.outputs.author }}"
+          configurationFile: renovate-config.js
+          token: ${{ secrets.RENOVATE_TOKEN }}
