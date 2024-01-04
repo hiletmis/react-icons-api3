@@ -11,12 +11,15 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
+      - name: Open PR
+        id: open_pr
+        uses: rematocorp/open-pull-request-action@v1
         with:
-          destination_branch: "main"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_label: "feature, automated pr"
-          pr_title: "[Example] Simple demo"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          from-branch: update-packages
+          to-branch: main
+          repository-owner: hiletmis
+          repository: react-icons-api3
+          
+      - name: Echo mergeable PR number
+        run: echo ${{ steps.open_pr.outputs.pull_number }}
