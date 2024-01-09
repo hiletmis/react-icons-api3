@@ -2,9 +2,7 @@ name: Trigger on Registry Package Publish
 
 on:
   registry_package:
-    types: [published, updated]
   release:
-    types: [published]
 permissions:
     contents: write
 jobs:
