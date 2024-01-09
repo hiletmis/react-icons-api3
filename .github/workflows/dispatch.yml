@@ -1,7 +1,7 @@
 name: Trigger on Registry Package Publish
 
 on:
-  registry_package:
+  release:
     types: [published]
 permissions:
     contents: write
