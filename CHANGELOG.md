@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 0.0.18
+
+### Patch Changes
+
+- a6a74c8: Workflow test
+
 ## 0.0.17
 
 ### Patch Changes
