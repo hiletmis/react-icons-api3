@@ -3,8 +3,6 @@ name: Trigger on Registry Package Publish
 on:
   release:
     types: [published]
-permissions:
-    contents: write
 jobs:
   Trigger:
     runs-on: ubuntu-latest
