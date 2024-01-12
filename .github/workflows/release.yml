@@ -18,6 +18,7 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+          token: ${{ secrets.PAT }}
 
       - uses: actions/setup-node@v4
         with:
@@ -36,4 +37,4 @@ jobs:
           commit: "ci: release packages"
           title: "ci: release packages"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
