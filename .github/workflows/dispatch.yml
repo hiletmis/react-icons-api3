@@ -1,10 +1,8 @@
 name: Trigger on Registry Package Publish
 
 on:
-  registry_package:
   release:
-permissions:
-    contents: write
+    types: [published]
 jobs:
   Trigger:
     runs-on: ubuntu-latest
