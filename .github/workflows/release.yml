@@ -37,4 +37,4 @@ jobs:
           commit: "ci: release packages"
           title: "ci: release packages"
         env:
-          token: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
