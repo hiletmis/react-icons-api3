@@ -1,5 +1,12 @@
 # react-icons-api3
 
+## 0.1.5
+
+### Patch Changes
+
+- e5ef0d1: new release
+- 2808c40: new release
+
 ## 0.1.4
 
 ### Patch Changes
