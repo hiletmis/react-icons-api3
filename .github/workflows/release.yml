@@ -43,7 +43,7 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: production
+          branch: chageset/release-production
           base: main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
