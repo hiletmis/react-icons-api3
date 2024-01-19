@@ -31,10 +31,16 @@ jobs:
         run: yarn build-svg
 
       - name: Check release
+        id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn release
           commit: "ci: release packages"
           title: "ci: release packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+      - name: Create Pull Request
+        if: steps.changesets.outputs.published == 'true'
+        uses: peter-evans/create-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
