@@ -18,6 +18,7 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+          token: ${{ secrets.PAT }}
 
       - uses: actions/setup-node@v4
         with:
@@ -29,11 +30,17 @@ jobs:
       - name: Build package
         run: yarn build-svg
 
-      - name: Create Release Pull Request or Publish to npm
-        uses: changesets/action@master
+      - name: Check release
+        id: changesets
+        uses: changesets/action@v1
         with:
           publish: yarn release
           commit: "ci: release packages"
           title: "ci: release packages"
         env:
-          token: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+      - name: Create Pull Request
+        if: steps.changesets.outputs.published == 'true'
+        uses: peter-evans/create-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}

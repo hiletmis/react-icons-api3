@@ -1,5 +1,18 @@
 # react-icons-api3
 
+## 0.1.1
+
+### Patch Changes
+
+- f428125: test release
+- 4020ad9: test1
+
+## 0.0.19
+
+### Patch Changes
+
+- 70d5460: Test release
+
 ## 0.0.18
 
 ### Patch Changes

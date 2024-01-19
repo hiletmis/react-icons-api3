@@ -2,4 +2,4 @@
 "test-package-fork12": patch
 ---
 
-Test release
+test release
