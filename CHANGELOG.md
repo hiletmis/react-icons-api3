@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 0.1.7
+
+### Patch Changes
+
+- ff6a01f: test release
+
 ## 0.1.6
 
 ### Patch Changes
