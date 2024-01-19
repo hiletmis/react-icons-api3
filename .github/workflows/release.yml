@@ -42,5 +42,7 @@ jobs:
       - name: Create Pull Request
         if: steps.changesets.outputs.published == 'true'
         uses: peter-evans/create-pull-request@v5
+        with:
+          base: main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
