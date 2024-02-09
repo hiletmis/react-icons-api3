@@ -21,6 +21,9 @@
             "matchUpdateTypes": [
                 "major"
             ],
+            "schedule": [
+                "before 6pm"
+            ],
             "groupName": "api3 major updates"
         },
         {
@@ -35,6 +38,9 @@
                 "patch",
                 "minor"
             ],
+            "schedule": [
+                "before 6pm"
+            ],
             "groupName": "api3"
         },
         {
@@ -45,6 +51,9 @@
                 "patch",
                 "minor"
             ],
+            "schedule": [
+                "before 6pm"
+            ],
             "groupName": "other minor updates"
         },
         {
@@ -54,6 +63,9 @@
             "matchUpdateTypes": [
                 "major"
             ],
+            "schedule": [
+                "before 6pm"
+            ],
             "groupName": "other major updates"
         }
     ],
@@ -61,6 +73,9 @@
     "lockFileMaintenance": {
         "enabled": false
     },
+    "baseBranches": [
+        "production"
+    ],
     "reviewers": [
         "hiletmis"
     ],
