@@ -18,12 +18,12 @@
     },
     "devDependencies": {
         "@api3/api-integrations": "^0.0.1",
-        "@api3/chains": "^4.8.0",
+        "@api3/chains": "^4.9.0",
         "@babel/core": "^7.23.9",
         "@babel/preset-react": "^7.23.1",
         "@changesets/changelog-github": "^0.5.0",
         "@changesets/cli": "^2.27.1",
-        "@nodary/utilities": "^1.4.0",
+        "@nodary/utilities": "^1.5.1",
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
         "svgo": "^3.2.0"
