@@ -19,7 +19,6 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
-          token: ${{ secrets.PAT }}
 
       - uses: actions/setup-node@v4
         with:
@@ -39,12 +38,4 @@ jobs:
           commit: "ci: release packages"
           title: "ci: release packages"
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-      - name: Create Pull Request
-        if: steps.changesets.outputs.published == 'true'
-        uses: peter-evans/create-pull-request@v5
-        with:
-          branch: main
-          base: production
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
