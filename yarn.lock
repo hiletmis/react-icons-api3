@@ -49,10 +49,10 @@
     viem "^2.7.1"
     zod "^3.22.4"
 
-"@api3/chains@^4.10.0":
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.10.0.tgz#1393fc3f68b7173fcbf5bfbd2cd1cd6cfd11d666"
-  integrity sha512-7uxBtfu9/FTWzYsivorjL506AmqxQ6YljcFbpKApZ7JjlAZnuXJc4KPdNRKZ+CVFkg5FbfNEgjVPcj2otNvoHw==
+"@api3/chains@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.11.0.tgz#d519c6a018c6737999a910301d497c743924d853"
+  integrity sha512-hEtqsn1HGMS/TfsoViIpudNy2G8DaTvbVzH1rTWSGsQRFCKc0PqNYvEAVPvEY4Aec7lM76bdf6c5HsAD4LzuIw==
   dependencies:
     viem "^2.7.1"
     zod "^3.22.4"
