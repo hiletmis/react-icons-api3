@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 1.2.0
+
+### Minor Changes
+
+- df1120c: Test Minor
+
 ## 1.1.0
 
 ### Minor Changes
