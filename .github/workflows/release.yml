@@ -8,7 +8,6 @@ on:
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NPM_CONFIG_PROVENANCE: true
 
 jobs:
   release:
@@ -44,3 +43,7 @@ jobs:
           title: "ci: release packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: create pull request
+        run: gh pr create -B production -H main --title 'Merge production into main' --body 'Created by Github action'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
