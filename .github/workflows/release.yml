@@ -44,6 +44,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: create pull request
-        run: gh pr create -B production -H main --title 'Merge production into main' --body 'Created by Github action'
+        run: gh pr create -B main -H production --title 'Merge production into main' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
