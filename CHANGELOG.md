@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 1.3.0
+
+### Minor Changes
+
+- bf660f1: Test Release
+
 ## 1.2.0
 
 ### Minor Changes
