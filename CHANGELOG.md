@@ -1,5 +1,11 @@
 # react-icons-api3
 
+## 1.5.0
+
+### Minor Changes
+
+- 02f0151: Test
+
 ## 1.4.0
 
 ### Minor Changes
