@@ -41,18 +41,18 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@api3/chains@^4.13.0":
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.13.0.tgz#dd9f87eee9e0d2efb628009e35e9d68660957fa8"
-  integrity sha512-MjAz/03peNiqOUqWie35mO0QihPTWYYGU+fGXTo0NkPher3bsl0EhSdxDIn4uzkRTgCskAN4jTCwGI28b70y6A==
-  dependencies:
-    viem "^2.7.18"
-    zod "^3.22.4"
-
 "@api3/chains@^4.16.1":
   version "4.16.1"
   resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.16.1.tgz#dc80874333521bdee31e95cc5a2cf532f0d01c41"
   integrity sha512-ve0k83r7tnH/e2+JSYcEEnLbBP+jcqwOH4+7KL6lTiheZebOyPKUSlxOvTmBvuA1ejP3o77uEkyR+OZnaf/DwA==
+  dependencies:
+    viem "^2.9.6"
+    zod "^3.22.4"
+
+"@api3/chains@^4.17.0":
+  version "4.17.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.17.0.tgz#e990112dd33938dc36911638509dce5a405c3647"
+  integrity sha512-3o2f6DUwaKnjHJ3pZruWFpe2j9UvKtJsYDIhOYAGe02P0voWyDh+xVbCKPjPr1q75EGbftyK4OezK6vYx8LNTQ==
   dependencies:
     viem "^2.9.6"
     zod "^3.22.4"
@@ -1070,13 +1070,13 @@
   resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.3.3.tgz#39908da56a4adc270147bb07968bf3b16cfe1699"
   integrity sha512-V7/fPHgl+jsVPXqqeOzT8egNj2iBIVt+ECeMMG8TdcnTikP3oaBtUVqpT/gYCR68aEBJSF+XbYUxStjbFMqIIA==
 
-"@nodary/utilities@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nodary/utilities/-/utilities-2.1.0.tgz#5403bd5fe7a1b3dc843ef2c813866981bb65ae76"
-  integrity sha512-FWAmi5GyR95Q54lCN1vFtqYwT7mhw5eihyldUCBVv8rQx08aI/d8did+sOHew0U+ztaden0Y8Dd96EvqnTM+2Q==
+"@nodary/utilities@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@nodary/utilities/-/utilities-2.2.0.tgz#ecf5e26472c808ccd9c0ef5260ba6ccf5ff7f51d"
+  integrity sha512-mBlNuUsr1uQW0Da7fsyvIgl/LkRMnI2k1u9vfhbtWyV4JgGaHF6f0Ti5G6TpCQrDrz/22lvXDt4+sXIjlTl31g==
   dependencies:
     "@api3/airnode-abi" "^0.10.0"
-    "@api3/chains" "^4.13.0"
+    "@api3/chains" "^4.16.1"
     ethers "^6.1.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -3229,20 +3229,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-viem@^2.7.18:
-  version "2.7.20"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.7.20.tgz#c0d517c3ce5a19b963d624b378d706bd3c45efc6"
-  integrity sha512-S31a24LWEjqXAjw1A+3/xALo+4eiYKklAjLtlLdPhA0cp+Kv6GcgruNVTktP8pKIGNYvpyQ+HA9PJyUhVXPdDw==
-  dependencies:
-    "@adraffy/ens-normalize" "1.10.0"
-    "@noble/curves" "1.2.0"
-    "@noble/hashes" "1.3.2"
-    "@scure/bip32" "1.3.2"
-    "@scure/bip39" "1.2.1"
-    abitype "1.0.0"
-    isows "1.0.3"
-    ws "8.13.0"
 
 viem@^2.9.6:
   version "2.9.7"
