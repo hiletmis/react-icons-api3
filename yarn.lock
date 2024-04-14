@@ -23,22 +23,22 @@
     ethers "^5.7.2"
     lodash "^4.17.21"
 
-"@api3/airnode-abi@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@api3/airnode-abi/-/airnode-abi-0.12.0.tgz#5f0eba1e39a9a70f31560d6a60a9d620f9eedf77"
-  integrity sha512-UCFYZMxSZU/12fEK8SFdn+C6Vh+SBuB08PpD8QEEvOe8Rfzof541GphES46XHDpwQRd673OfgJRO9iySOSpB+Q==
+"@api3/airnode-abi@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@api3/airnode-abi/-/airnode-abi-0.14.1.tgz#2adbdcc833bb6dbb74aa8bd31811f7b1fee5d1f1"
+  integrity sha512-iKBJeLkKAT+ywgG8mf2G+yqeYBUVxDf7KMvpYWB/qdVjgo+qGJfLnoh9h5+u9fiUSVJS9L4c0YDWZiG2Ex5gzw==
   dependencies:
     ethers "^5.7.2"
     lodash "^4.17.21"
 
-"@api3/api-integrations@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-0.0.1.tgz#026ae7eb30c84dcda058a5e6ee4126fc26262856"
-  integrity sha512-Q/BvP3W38ItmlH5xSdwXYd64bUhSlbOEnnLjPkhXc2w/33Ync099Hba38x5r8bjrVooRDL1J7BYUAbp4h/hDBg==
+"@api3/api-integrations@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-1.0.0.tgz#62e09d5d1b74142ca6775f160ec74c01fdfee144"
+  integrity sha512-bvc5fCR2au2T+0fYm8IxKeK1tFbfhkuQJe0e1n/ZlGN6fcyqfBH1e8amnqy0tILtNhia/p1F53MDDGPEGmbz/g==
   dependencies:
-    "@api3/airnode-abi" "^0.12.0"
-    "@api3/ois" "^2.2.1"
-    ethers "^5.4.2"
+    "@api3/airnode-abi" "^0.14.1"
+    "@api3/ois" "^2.3.2"
+    ethers "^5.7.2"
     zod "^3.22.4"
 
 "@api3/chains@^4.16.1":
@@ -57,10 +57,10 @@
     viem "^2.9.6"
     zod "^3.22.4"
 
-"@api3/ois@^2.2.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@api3/ois/-/ois-2.3.1.tgz#de80dc1b404f094be9049d2a8fdc0362cdfd7dce"
-  integrity sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==
+"@api3/ois@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@api3/ois/-/ois-2.3.2.tgz#1707a7311e7db55384b8b2ea7513eccb0dfd8846"
+  integrity sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==
   dependencies:
     lodash "^4.17.21"
     zod "^3.22.4"
@@ -1761,7 +1761,7 @@ esprima@^4.0.0:
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
-ethers@^5.4.2, ethers@^5.7.2:
+ethers@^5.7.2:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.7.2.tgz#3a7deeabbb8c030d4126b24f84e525466145872e"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
