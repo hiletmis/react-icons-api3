@@ -23,13 +23,7 @@ jobs:
         run: yarn install
       - name: Pack Package
         run: yarn package
-      - name: Upload Package
-        uses: actions/upload-artifact@v4
-        with:
-          name: logos.tgz
-          path: ./logos.tgz
   require-user:
-    if: github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,6 +34,9 @@ jobs:
           cache: 'yarn'
       - name: Install Packages
         run: yarn install
+        if: github.actor == 'renovate[bot]'
+      - name: Pack Package
+        run: yarn package
   required-checks-passed:
     name: All required checks passed
     runs-on: ubuntu-latest
