@@ -34,8 +34,8 @@ jobs:
           cache: 'yarn'
       - name: Install Packages
         run: yarn install
-        if: github.actor == 'renovate[bot]'
       - name: Pack Package
+        if: github.actor == 'renovate[bot]'
         run: yarn package
   required-checks-passed:
     name: All required checks passed
