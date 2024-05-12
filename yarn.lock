@@ -31,10 +31,10 @@
     ethers "^5.7.2"
     lodash "^4.17.21"
 
-"@api3/api-integrations@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-1.3.0.tgz#56bd167050ac1c5d2c5f07202384e5f80845517d"
-  integrity sha512-XpYoqXTszEDXP/zMB1nwvMt/LS9hwA2Py9J4YWezlsgL5SfEg04qWjyJYRdt1JJ+kM8PTgiLNb15SU+2BwNoKw==
+"@api3/api-integrations@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-1.6.0.tgz#00bb5b74e377a0ef723a0f55a7c7af6e6d483504"
+  integrity sha512-57zo3M/hu5EY5WnQVcPai/8XmROFy+uZi/K+fHjVmmd2P6cstTiP/HmYukJwpW0Oa//a3X6IZSjz6osKQpoKNA==
   dependencies:
     "@api3/airnode-abi" "^0.14.1"
     "@api3/ois" "^2.3.2"
@@ -49,10 +49,10 @@
     viem "^2.9.6"
     zod "^3.22.4"
 
-"@api3/chains@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-6.1.0.tgz#fa2da1bc6d56694f87045a5bf249da144d7536fb"
-  integrity sha512-OG6565Rg8URO27qNJioP5+CdUlg06TKwCwOo3L3TO4s7zpP3BSuhUz5CrjKtTfRUDGfbDtqIWWgPzGfrGPKT2Q==
+"@api3/chains@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-6.2.0.tgz#10c31695a9d60d5af06e7ef029150b70ca93967f"
+  integrity sha512-TjwOACEO896lBTOFN7sLMn7zsNZkWsBbXN+Y1nf7lyyZTx8GBFx8kLj2eho1jcKa5EPvi3ADUss3L4/6v2s5vw==
   dependencies:
     viem "^2.9.29"
     zod "^3.23.5"
@@ -2772,10 +2772,10 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rimraf@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-5.0.5.tgz#9be65d2d6e683447d2e9013da2bf451139a61ccf"
-  integrity sha512-CqDakW+hMe/Bz202FPEymy68P+G50RfMQK+Qo5YUqc9SPipvbGjCGKd0RSKEelbsfQuw3g5NZDSrlZZAJurH1A==
+rimraf@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-5.0.7.tgz#27bddf202e7d89cb2e0381656380d1734a854a74"
+  integrity sha512-nV6YcJo5wbLW77m+8KjH8aB/7/rxQy9SZ0HY5shnwULfS+9nmTtVXAJET5NdZmCzA4fPI/Hm1wo/Po/4mopOdg==
   dependencies:
     glob "^10.3.7"
 
@@ -3073,10 +3073,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-svgo@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-3.2.0.tgz#7a5dff2938d8c6096e00295c2390e8e652fa805d"
-  integrity sha512-4PP6CMW/V7l/GmKRKzsLR8xxjdHTV4IMvhTnpuHwwBazSIlw5W/5SmPjN8Dwyt7lKbSJrRDgp4t9ph0HgChFBQ==
+svgo@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/svgo/-/svgo-3.3.2.tgz#ad58002652dffbb5986fc9716afe52d869ecbda8"
+  integrity sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==
   dependencies:
     "@trysound/sax" "0.2.0"
     commander "^7.2.0"
