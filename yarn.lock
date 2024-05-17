@@ -31,10 +31,10 @@
     ethers "^5.7.2"
     lodash "^4.17.21"
 
-"@api3/api-integrations@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-1.6.0.tgz#00bb5b74e377a0ef723a0f55a7c7af6e6d483504"
-  integrity sha512-57zo3M/hu5EY5WnQVcPai/8XmROFy+uZi/K+fHjVmmd2P6cstTiP/HmYukJwpW0Oa//a3X6IZSjz6osKQpoKNA==
+"@api3/api-integrations@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-1.7.1.tgz#9e54b6664f25adb994bcf01c0369942e270da08f"
+  integrity sha512-xZG5YJNGgF8TY1MmynHIlzhxyf/Co94iTg0RgVEw73u2GO/78y1MBU7ZSYU+mld4/2iC4B3EUl7EaBsoMVUGwQ==
   dependencies:
     "@api3/airnode-abi" "^0.14.1"
     "@api3/ois" "^2.3.2"
@@ -49,10 +49,10 @@
     viem "^2.9.6"
     zod "^3.22.4"
 
-"@api3/chains@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-6.2.0.tgz#10c31695a9d60d5af06e7ef029150b70ca93967f"
-  integrity sha512-TjwOACEO896lBTOFN7sLMn7zsNZkWsBbXN+Y1nf7lyyZTx8GBFx8kLj2eho1jcKa5EPvi3ADUss3L4/6v2s5vw==
+"@api3/chains@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-6.3.0.tgz#90e5458dec2d8bfb2914659d6a84202a2c608d21"
+  integrity sha512-ZBurUD69aoA4oCuLOOJ/91+9VXYJaXnMz3HkWg+yuiwCK9DaIgpS2Pl6kagga3UDOT80unRXcCwUpTQF5fkYIw==
   dependencies:
     viem "^2.9.29"
     zod "^3.23.5"
@@ -400,10 +400,10 @@
     "@babel/helper-validator-identifier" "^7.24.5"
     to-fast-properties "^2.0.0"
 
-"@changesets/apply-release-plan@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.0.tgz#ce3c3dfc5720550a5d592b54ad2f411f816ec5ff"
-  integrity sha512-vfi69JR416qC9hWmFGSxj7N6wA5J222XNBmezSVATPWDVPIF7gkd4d8CpbEbXmRWbVrkoli3oerGS6dcL/BGsQ==
+"@changesets/apply-release-plan@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.1.tgz#a6dd7cc538ca6c0f142b33462252f2c2f34ae5ac"
+  integrity sha512-aPdSq/R++HOyfEeBGjEe6LNG8gs0KMSyRETD/J2092OkNq8mOioAxyKjMbvVUdzgr/HTawzMOz7lfw339KnsCA==
   dependencies:
     "@babel/runtime" "^7.20.1"
     "@changesets/config" "^3.0.0"
@@ -447,13 +447,13 @@
     "@changesets/types" "^6.0.0"
     dotenv "^8.1.0"
 
-"@changesets/cli@^2.27.1":
-  version "2.27.1"
-  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.1.tgz#abce480fd30b9abbe2cfcf07d5d668c364ce2804"
-  integrity sha512-iJ91xlvRnnrJnELTp4eJJEOPjgpF3NOh4qeQehM6Ugiz9gJPRZ2t+TsXun6E3AMN4hScZKjqVXl0TX+C7AB3ZQ==
+"@changesets/cli@^2.27.2":
+  version "2.27.2"
+  resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.27.2.tgz#bc458e6f0d15899681380f221a5cad28d45de74c"
+  integrity sha512-6/kADjKMOrlLwNr/Y5HAq7T9oGOA2Lq5A59AGtwQCCiXuSGp4EgszzdJFeBiF8pdz7Wn1HaLzSUBhAaNToEJqg==
   dependencies:
     "@babel/runtime" "^7.20.1"
-    "@changesets/apply-release-plan" "^7.0.0"
+    "@changesets/apply-release-plan" "^7.0.1"
     "@changesets/assemble-release-plan" "^6.0.0"
     "@changesets/changelog-git" "^0.2.0"
     "@changesets/config" "^3.0.0"
@@ -465,7 +465,7 @@
     "@changesets/pre" "^2.0.0"
     "@changesets/read" "^0.6.0"
     "@changesets/types" "^6.0.0"
-    "@changesets/write" "^0.3.0"
+    "@changesets/write" "^0.3.1"
     "@manypkg/get-packages" "^1.1.3"
     "@types/semver" "^7.5.0"
     ansi-colors "^4.1.3"
@@ -605,10 +605,10 @@
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-6.0.0.tgz#e46abda9890610dd1fbe1617730173d2267544bd"
   integrity sha512-b1UkfNulgKoWfqyHtzKS5fOZYSJO+77adgL7DLRDr+/7jhChN+QcHnbjiQVOz/U+Ts3PGNySq7diAItzDgugfQ==
 
-"@changesets/write@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@changesets/write/-/write-0.3.0.tgz#c6c5bc390cce4031da20eab8a4ca2d71453a1985"
-  integrity sha512-slGLb21fxZVUYbyea+94uFiD6ntQW0M2hIKNznFizDhZPDgn2c/fv1UzzlW43RVzh1BEDuIqW6hzlJ1OflNmcw==
+"@changesets/write@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@changesets/write/-/write-0.3.1.tgz#438ef1dabc790cca35ce9fd36d26643b0f1786c9"
+  integrity sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==
   dependencies:
     "@babel/runtime" "^7.20.1"
     "@changesets/types" "^6.0.0"
