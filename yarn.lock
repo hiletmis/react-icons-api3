@@ -49,10 +49,10 @@
     viem "^2.9.6"
     zod "^3.22.4"
 
-"@api3/chains@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-6.3.0.tgz#90e5458dec2d8bfb2914659d6a84202a2c608d21"
-  integrity sha512-ZBurUD69aoA4oCuLOOJ/91+9VXYJaXnMz3HkWg+yuiwCK9DaIgpS2Pl6kagga3UDOT80unRXcCwUpTQF5fkYIw==
+"@api3/chains@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-7.0.0.tgz#e46c20e626920126133078124b4f348b8caac931"
+  integrity sha512-rSpsIqblh/CGhoSa2fufUYCSkQ52LG40jKmsv8Icu8uYBeBA4dSmRZ6uKjsJ3Ix5HB9j2EZFk4b0ZvLa+wixkw==
   dependencies:
     viem "^2.9.29"
     zod "^3.23.5"
@@ -1063,10 +1063,10 @@
   resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.3.3.tgz#39908da56a4adc270147bb07968bf3b16cfe1699"
   integrity sha512-V7/fPHgl+jsVPXqqeOzT8egNj2iBIVt+ECeMMG8TdcnTikP3oaBtUVqpT/gYCR68aEBJSF+XbYUxStjbFMqIIA==
 
-"@nodary/utilities@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@nodary/utilities/-/utilities-2.4.0.tgz#0da6fad4f78361e7f66f246083777479cea186c7"
-  integrity sha512-i3EXUZwy5ObjO9corQpybQPbcZZVEAJyIEarSB632vS+6XpSp/CquM8m3HQZ4X8W/5oEHnrVpW0d2zco3VXUuw==
+"@nodary/utilities@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@nodary/utilities/-/utilities-3.2.0.tgz#5caf066eaef91f137d7259ae77d05e30f2c83eb9"
+  integrity sha512-UnK9aZfakm9KpwTDdH9fBt+j4PDgpgcUSewcooTGKfib28bG4ouNixtdEJ1iGBoQuPlm9PzlPeRsNa/ObgtlqQ==
   dependencies:
     "@api3/airnode-abi" "^0.10.0"
     "@api3/chains" "^4.17.1"
