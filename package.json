@@ -17,13 +17,13 @@
         "camelcase": "^6.3.0"
     },
     "devDependencies": {
-        "@api3/api-integrations": "^1.14.0",
+        "@api3/api-integrations": "^1.16.0",
         "@api3/chains": "^7.2.1",
         "@babel/core": "^7.24.7",
         "@babel/preset-react": "^7.24.7",
         "@changesets/changelog-github": "^0.5.0",
-        "@changesets/cli": "^2.27.5",
-        "@nodary/utilities": "^3.5.0",
+        "@changesets/cli": "^2.27.6",
+        "@nodary/utilities": "^3.8.0",
         "prettier": "^3.3.2",
         "rimraf": "^5.0.7",
         "svgo": "^3.3.2"
